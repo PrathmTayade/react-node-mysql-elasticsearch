@@ -1,0 +1,32 @@
+services:
+  # MySQL service
+  mysql:
+    container_name: db
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
+
+  # Elasticsearch service
+  elasticsearch:
+    image: elasticsearch:8.14.1
+    restart: unless-stopped
+    environment:
+      discovery.type: single-node
+      ELASTIC_PASSWORD: password
+      xpack.security.http.ssl.enabled: false
+      xpack.license.self_generated.type: trial
+    ports:
+      - 9200:9200
+
+  # Your Node.js application service
+
+volumes:
+  mysql-data: {} # Persistent storage for MySQL data
