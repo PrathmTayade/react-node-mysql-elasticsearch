@@ -1,15 +1,11 @@
-// src/App.js
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-import CreateClient from "./components/CreateClient";
-import EditClient from "./components/EditClient";
 import ClientList from "./components/ClientList";
 import ClientForm from "./components/ClientForm";
 
 const App = () => {
   return (
     <BrowserRouter>
-    
       <Navbar bg="dark" variant="dark" expand="lg" navbar className="p-2">
         <Navbar.Brand href="/">Company Management</Navbar.Brand>
         <Nav className="mr-auto">
@@ -17,7 +13,7 @@ const App = () => {
           <Nav.Link href="/clients/new">Create Client</Nav.Link>
         </Nav>
       </Navbar>
-      <Container  >
+      <Container>
         <Routes>
           <Route path="/" element={<ClientList />} />
           <Route path="/clients/new" element={<ClientForm />} />

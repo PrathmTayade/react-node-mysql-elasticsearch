@@ -118,12 +118,12 @@ const ClientList = () => {
               <td>{company._source.name}</td>
               <td>{company._source.cin}</td>
               <td>{company._source.status}</td>
-              <td>
+              <td className="d-flex p-2 gap-2">
                 <Button
                   onClick={() => navigate(`/clients/${company._id}/edit`)}
                   variant="primary"
                   size="sm"
-                  className="mx-2"
+                  className=""
                 >
                   Edit
                 </Button>
