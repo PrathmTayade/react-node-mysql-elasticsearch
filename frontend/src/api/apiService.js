@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:3000/api/es/clients"; // Adjust URL as per your API endpoint
+const API_BASE_URL = `${import.meta.env.VITE_BACKEND}/es/clients`; // Adjust URL as per your API endpoint
 
 const apiService = {
   async getAllCompanies({ page = 1, limit = 10 }) {
