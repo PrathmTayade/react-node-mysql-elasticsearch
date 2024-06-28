@@ -27,6 +27,7 @@ const ClientList = () => {
       }
     } catch (error) {
       console.error("Error fetching companies:", error);
+      setCompanies([]);
       // Handle error state or show notification
     } finally {
       setLoading(false);
