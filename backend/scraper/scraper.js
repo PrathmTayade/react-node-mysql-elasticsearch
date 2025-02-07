@@ -7,6 +7,7 @@ import {
 } from "./utils.js";
 import { CompanyDetails } from "../database/mysql.js";
 import "dotenv/config";
+import esClient from "../database/elasticsearch.js";
 
 function extractCompanyDetails(companyDiv, baseUrl) {
   // Load the HTML content of the div
@@ -55,7 +56,7 @@ async function crawlLatestCompanies(url) {
         if (companyDetail) {
           //! add to db
           // CompanyDetails.create(companyDetail);
-          console.log("Company added to database:", companyDetail.name);
+          console.log("Company added to database:", companyDetail.name);x``
           const doc = await addToElasticSearch("clients", companyDetail);
           if (doc) {
             // store in array for future use
